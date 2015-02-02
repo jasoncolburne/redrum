@@ -140,3 +140,5 @@ clean:
 
 empty:
 	$(SILENT)$(RM) -rf $(OBJDIR) $(BINNAME)
+
+test:
