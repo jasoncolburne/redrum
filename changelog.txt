@@ -1,0 +1,28 @@
+Copyright (C) 2010, Redbeard Enterprises Ltd.
+All rights reserved.
+
+$Id: changelog.txt 24 2010-04-28 17:27:15Z jason $
+
+0.1.6 (Revision ???):
+
+0.1.5 (Revision 23):
+  2010-04-22 Rework to support Linux
+  2010-04-14 Package script can now ignore files prefixed with _
+
+0.1.4 (Revision 17):
+  2010-04-11 Fix yet again broken package.rb (really need unit tests for this)
+
+0.1.3 (Revision 14):
+  2010-04-11 Fix broken package.rb
+
+0.1.2 (Revision 11):
+  2010-04-11 Add target_build substitution to package.rb
+  2010-04-11 Force warnings as errors (gnu at least)
+
+0.1.1 (Revision 8):
+  2010-04-03 Dependency files individualized
+  2010-04-01 Changelog added
+
+0.1.0 (Revision 5):
+  2010-03-30 Packaging scripts added
+  2010-03-28 Basic support for OS X 64-bit (darwin64_x86)
