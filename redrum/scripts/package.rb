@@ -75,6 +75,7 @@ def copyGlob(from, dest, perm)
     innerDest += '/' + filename if destIsDir
 
     if ($CONFIG['ignore-svn'] && file =~ /\/\.svn$/) ||
+       ($CONFIG['ignore-git'] && file =~ /\/\.git$/) ||
        ($CONFIG['ignore-cvs'] && file =~ /\/CVS$/)   ||
        ($CONFIG['ignore-priv'] && filename =~ /^_/)
       next

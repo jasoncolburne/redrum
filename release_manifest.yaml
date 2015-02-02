@@ -6,6 +6,7 @@
 configuration:
  ignore-cvs:  true
  ignore-svn:  true
+ ignore-git:  true
  ignore-priv: true
  root:        .
  destination: release
