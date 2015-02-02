@@ -102,7 +102,7 @@ unresolved: bin
 print-debug: bin
 	: reporting debugging symbols in '$(BINNAME)'
 	$(SILENT)$(NM) -l $(BINNAME)
-	
+
 echo:
 	$(SILENT)$(ECHO) "APPID    = $(APPID)"
 	$(SILENT)$(ECHO)
