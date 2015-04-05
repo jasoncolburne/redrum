@@ -1,6 +1,15 @@
-Copyright (C) 2010, Redbeard Enterprises Ltd.
+Copyright (C) 2015, Redbeard Enterprises Ltd.
 All rights reserved.
 
-$Id: readme.txt 6 2010-04-03 08:33:49Z jason $
+Getting Started:
 
-Nothing for now. If you have questions, email jason@redbeardenterprises.com.
+1. Export your target environment and build:
+
+$ export RED_TARGET = linux64_x86
+$ export RED_BUILD  = release
+
+2. Make to distribute
+
+$ make dist
+
+3. Find distributable archive in ./release

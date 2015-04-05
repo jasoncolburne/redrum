@@ -55,7 +55,7 @@ CFLAGS   += -D__vxworks__     \
             -DTOOL_FAMILY=gnu \
             -DTOOL=gnu        \
             -I$(OS_INCLUDE_DIRS)
-            
+
 ifneq ("$(RED_PLATFORM)", "SIMPC")
 CFLAGS +=   -mstrict-align    \
             -mlongcall
@@ -67,3 +67,5 @@ CFLAGS +=   -fno-builtin   \
 endif
 
 CPPFLAGS += $(CFLAGS)
+
+STRIPFLAGS +=

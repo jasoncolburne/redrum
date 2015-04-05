@@ -19,3 +19,5 @@ LDFLAGS  +=
 
 CFLAGS   +=
 CPPFLAGS += $(CFLAGS)
+
+STRIPFLAGS += --strip-unneeded

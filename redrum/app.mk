@@ -125,7 +125,7 @@ $(BINNAME): $(OBJS) $(LIBDEPS)
 	$(SILENT)$(LDBIN) $^ $(LDFLAGS) -o $@
 ifneq ("$(RED_BUILD)","debug")
 	: strip $(@F)...
-	$(SILENT)$(STRIP) --strip-unneeded $@
+	$(SILENT)$(STRIP) $(STRIPFLAGS) $@
 endif
 
 $(OBJDIR)/%$O:

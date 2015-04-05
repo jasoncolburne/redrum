@@ -1,9 +1,10 @@
-Copyright (C) 2010, Redbeard Enterprises Ltd.
+Copyright (C) 2015, Redbeard Enterprises Ltd.
 All rights reserved.
 
-$Id: changelog.txt 24 2010-04-28 17:27:15Z jason $
-
-0.1.6 (Revision ???):
+0.1.7: (Revision ???)
+  2015-04-04 Change release string to be more appropriate
+  2015-04-04 Create flags variable for strip
+  2015-02-02 Echo target for lib makefile
 
 0.1.5 (Revision 23):
   2010-04-22 Rework to support Linux

@@ -9,14 +9,12 @@ RUMPATH = redrum
 include $(RUMPATH)/target.mk
 
 REVISION="`git symbolic-ref HEAD 2> /dev/null | cut -b 12-`-`git log --pretty=format:\"%h\" -1`"
-#REVISION := $(subst :, ,$(shell svnversion -nc .))
-#REVISION := $(word $(words $(REVISION)),$(REVISION))
 
 VERSION_MAJOR = $(word 1,$(subst _, ,$(shell cat version)))
 VERSION_MINOR = $(word 2,$(subst _, ,$(shell cat version)))
 VERSION_POINT = $(word 3,$(subst _, ,$(shell cat version)))
 
-VERSION_STRING =$(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_POINT)-$(REVISION)
+VERSION_STRING =$(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_POINT)-$(RED_TARGET).$(RED_BUILD)
 
 all:
 	@$(MAKE) -w -C src

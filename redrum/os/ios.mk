@@ -26,3 +26,5 @@ LDFLAGS  += -arch armv6 -isysroot $(IOS_SYSTEM_ROOT)
 
 CFLAGS   += -arch armv6 -isysroot $(IOS_SYSTEM_ROOT)
 CPPFLAGS += $(CFLAGS)
+
+STRIPFLAGS +=
