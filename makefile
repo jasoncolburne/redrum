@@ -14,7 +14,7 @@ VERSION_MAJOR = $(word 1,$(subst _, ,$(shell cat version)))
 VERSION_MINOR = $(word 2,$(subst _, ,$(shell cat version)))
 VERSION_POINT = $(word 3,$(subst _, ,$(shell cat version)))
 
-VERSION_STRING =$(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_POINT)-$(RED_TARGET).$(RED_BUILD)
+VERSION_STRING =$(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_POINT)
 
 all:
 	@$(MAKE) -w -C src
@@ -26,7 +26,7 @@ dist:
 	: creating release package...
 	@cp -f changelog.txt changelogtmp.txt
 	@$(SED_IN_PLACE) "s/???/$(REVISION)/g" changelogtmp.txt
-	@ruby $(RUMPATH)/scripts/package.rb release_manifest.yaml $(VERSION_STRING)
+	@ruby $(RUMPATH)/scripts/package.rb release_manifest.yaml $(VERSION_STRING) $(RED_TARGET) $(RED_BUILD)
 	@rm -f changelogtmp.txt
 
 %:

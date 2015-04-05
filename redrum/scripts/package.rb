@@ -42,11 +42,9 @@ yaml = YAML::load_file($INPUT)
 $CONFIG   = yaml['configuration']
 $CONTENTS = yaml['contents']
 $PROJROOT = $CONFIG['root']
-if $RED_TARGET
-  $PKGBASE = $CONFIG['basename'] + '-' + $RED_TARGET + '-' + $SUFFIX
-else
-  $PKGBASE = $CONFIG['basename'] + '-' + $SUFFIX
-end
+$PKGBASE  = $CONFIG['basename'] + '-' + $SUFFIX
+$PKGBASE += '-' + $RED_TARGET if $RED_TARGET
+$PKGBASE += '-' + $RED_BUILD  if $RED_BUILD
 $TEMPROOT = $PROJROOT + '/' + $CONFIG['temporary'] + '/' + $PKGBASE + '/'
 
 # make sure your yaml is correct or you may clobber something unintentionally
