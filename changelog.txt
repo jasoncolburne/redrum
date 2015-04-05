@@ -2,6 +2,7 @@ Copyright (C) 2015, Redbeard Enterprises Ltd.
 All rights reserved.
 
 0.1.7: (Revision ???)
+  2015-04-05 Change copyright dates
   2015-04-04 Change release string to be more appropriate
   2015-04-04 Create flags variable for strip
   2015-02-02 Echo target for lib makefile

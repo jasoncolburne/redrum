@@ -1,4 +1,4 @@
-# Copyright (C) 2010, Redbeard Enterprises Ltd.
+# Copyright (C) 2015, Redbeard Enterprises Ltd.
 #
 # Not to be used in any form without express written consent.
 # All rights reserved.
