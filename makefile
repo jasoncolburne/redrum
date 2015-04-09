@@ -26,7 +26,7 @@ dist:
 	: creating release package...
 	@cp -f changelog.txt changelogtmp.txt
 	@$(SED_IN_PLACE) "s/???/$(REVISION)/g" changelogtmp.txt
-	@ruby $(RUMPATH)/scripts/package.rb release_manifest.yaml $(VERSION_STRING) $(RED_TARGET) $(RED_BUILD)
+	@ruby $(RUMPATH)/scripts/package.rb release_manifest.yaml $(VERSION_STRING) $(RED_BUILD)
 	@rm -f changelogtmp.txt
 
 %:
