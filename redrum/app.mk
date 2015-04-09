@@ -5,10 +5,6 @@
 #
 # $Id: app.mk 28 2011-02-10 07:06:19Z jason $
 
-ifndef RED_TARGET_BUILD
-  $(error "RED_TARGET_BUILD not defined! Makefile error. Include target.mk.")
-endif
-
 SILENT ?= @
 
 APPID   ?= $(word $(words $(subst /, ,$(subst \,/,$(shell pwd)))), $(subst /, ,$(subst \,/,$(shell pwd))))
@@ -17,7 +13,7 @@ APPROOT  ?= ..
 PROJROOT ?= $(APPROOT)/..
 SRCROOT  ?= $(PROJROOT)/src
 PKGROOT  ?= $(PROJROOT)/pkg
-BINDIR   ?= $(PROJROOT)/bin/$(RED_TARGET_BUILD)
+BINDIR   ?= $(PROJROOT)/bin/$(RED_TARGET)/$(RED_BUILD)
 
 SRCDIR  ?= ./src
 OBJROOT ?= $(word 1,$(SRCDIR))
@@ -25,7 +21,7 @@ OBJROOT ?= $(word 1,$(SRCDIR))
 CPP_EXTS := .cpp .cxx .cc .C .c++
 
 # find objects
-OBJDIR     ?= $(OBJROOT)/obj/$(RED_TARGET_BUILD)
+OBJDIR     ?= $(OBJROOT)/obj/$(RED_TARGET)/$(RED_BUILD)
 C_SOURCES  := $(foreach dir,$(SRCDIR),$(filter-out $(addsuffix .c,$(addprefix $(dir)/,$(EXCLUDE_OBJECTS))),$(wildcard $(dir)/*.c)))
 CC_SOURCES := $(foreach dir,$(SRCDIR),$(foreach ext,$(CPP_EXTS),$(filter-out $(addsuffix $(ext),$(addprefix $(dir)/,$(EXCLUDE_OBJECTS))),$(wildcard $(dir)/*$(ext)))))
 SOURCES    := $(C_SOURCES) $(CC_SOURCES)
@@ -46,7 +42,7 @@ ifneq ("$(LIBS.$(RED_OS_NO_WIDTH))","")
 endif
 
 
-HDIRS   += $(wildcard $(SRCROOT)/*/include) $(PKGROOT)/$(RED_TARGET_BUILD)/include
+HDIRS   += $(wildcard $(SRCROOT)/*/include) $(PKGROOT)/$(RED_TARGET)/$(RED_BUILD)/include
 
 ifeq ("$(OBJS)","")
   BINNAME :=	
@@ -54,11 +50,11 @@ else
   BINNAME := $(BINDIR)/$(APPID)$E
 endif
 
-LIBDIRS := $(PROJROOT)/lib/$(RED_TARGET_BUILD)
-ifeq ("$(wildcard $(PKGROOT)/$(RED_TARGET_BUILD)/lib)","")
+LIBDIRS := $(PROJROOT)/lib/$(RED_TARGET)/$(RED_BUILD)
+ifeq ("$(wildcard $(PKGROOT)/$(RED_TARGET)/$(RED_BUILD)/lib)","")
   LIBDIRS +=
 else
-  LIBDIRS += $(PKGROOT)/$(RED_TARGET_BUILD)/lib
+  LIBDIRS += $(PKGROOT)/$(RED_TARGET)/$(RED_BUILD)/lib
 endif
 
 LIBDEPS := $(foreach lib,$(LIBS),$(foreach dir,$(LIBDIRS),$(wildcard $(dir)/$(LIBPREFIX)$(lib)$A)))

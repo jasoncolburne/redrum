@@ -19,24 +19,19 @@ end
 
 
 $RED_TARGET       = nil
-$RED_TARGET_BUILD = nil
 $RED_BUILD        = nil
 
 
 if ARGV.count >= 4
-  $RED_BUILD = ARGV.pop
+  $RED_TARGET = ARGV.pop
 end
 
 if ARGV.count >= 3
-  $RED_TARGET = ARGV.pop
+  $RED_BUILD = ARGV.pop
 end
 
 $SUFFIX     = ARGV.pop
 $INPUT      = ARGV.pop
-
-if $RED_BUILD
-  $RED_TARGET_BUILD = "#{$RED_TARGET}_#{$RED_BUILD}"
-end
 
 yaml = YAML::load_file($INPUT)
 $CONFIG   = yaml['configuration']
@@ -103,9 +98,6 @@ $CONTENTS.each_value do |items|
     if $RED_BUILD
       from.gsub!("RED_BUILD", $RED_BUILD)
       dest.gsub!("RED_BUILD", $RED_BUILD)
-
-      from.gsub!("RED_TARGET_BUILD", $RED_TARGET_BUILD)
-      dest.gsub!("RED_TARGET_BUILD", $RED_TARGET_BUILD)
     end
 
     if $RED_TARGET

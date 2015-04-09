@@ -5,10 +5,6 @@
 #
 # $Id: src.mk 28 2011-02-10 07:06:19Z jason $
 
-ifndef RED_TARGET_BUILD
-  $(error "RED_TARGET_BUILD not defined! Makefile error. Include target.mk.")
-endif
-
 SILENT ?= @
 
 SRCROOT ?= ..
@@ -24,14 +20,14 @@ OBJROOT  ?= $(word 1, $(SRCDIR))
 CPP_EXTS := .cpp .cxx .cc .C .c++
 
 # find objects
-OBJDIR     ?= $(OBJROOT)/obj/$(RED_TARGET_BUILD)
+OBJDIR     ?= $(OBJROOT)/obj/$(RED_TARGET)/$(RED_BUILD)
 C_SOURCES  := $(foreach dir,$(SRCDIR),$(filter-out $(addsuffix .c,$(addprefix $(dir)/,$(EXCLUDE_OBJECTS))),$(wildcard $(dir)/*.c)))
 CC_SOURCES := $(foreach dir,$(SRCDIR),$(foreach ext,$(CPP_EXTS),$(filter-out $(addsuffix $(ext),$(addprefix $(dir)/,$(EXCLUDE_OBJECTS))),$(wildcard $(dir)/*$(ext)))))
 SOURCES    := $(C_SOURCES) $(CC_SOURCES)
 OBJS       := $(addsuffix $O, $(addprefix $(OBJDIR)/,$(notdir $(basename $(SOURCES)))))
 
 # the above crazy business is mainly for porting
-TEST_OBJDIR     := $(TSTDIR)/obj/$(RED_TARGET_BUILD)
+TEST_OBJDIR     := $(TSTDIR)/obj/$(RED_TARGET)/$(RED_BUILD)
 TEST_C_SOURCES  := $(wildcard $(TSTDIR)/*.c)
 TEST_CC_SOURCES := $(foreach ext,$(CPP_EXTS),$(wildcard $(TSTDIR)/*$(ext)))
 TEST_SOURCES    := $(TEST_C_SOURCES) $(TEST_CC_SOURCES)
@@ -54,15 +50,15 @@ ifneq ("$(LIBS.$(RED_OS_NO_WIDTH))","")
 endif
 
 
-HDIRS   += $(wildcard $(SRCROOT)/*/include) $(PKGROOT)/$(RED_TARGET_BUILD)/include
+HDIRS   += $(wildcard $(SRCROOT)/*/include) $(PKGROOT)/$(RED_TARGET)/$(RED_BUILD)/include
 
 TSTBIN  := $(TEST_OBJDIR)/test_$(MODULEID)$E
 
-LIBDIRS := $(PROJROOT)/lib/$(RED_TARGET_BUILD)
-ifeq ("$(wildcard $(PKGROOT)/$(RED_TARGET_BUILD)/lib)","")
+LIBDIRS := $(PROJROOT)/lib/$(RED_TARGET)/$(RED_BUILD)
+ifeq ("$(wildcard $(PKGROOT)/$(RED_TARGET)/$(RED_BUILD)/lib)","")
   LIBDIRS +=
 else
-  LIBDIRS += $(PKGROOT)/$(RED_TARGET_BUILD)/lib
+  LIBDIRS += $(PKGROOT)/$(RED_TARGET)/$(RED_BUILD)/lib
 endif
 
 LIBDEPS := $(foreach lib,$(LIBS),$(foreach dir,$(LIBDIRS),$(wildcard $(dir)/$(LIBPREFIX)$(lib)*)))

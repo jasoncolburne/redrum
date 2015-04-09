@@ -5,16 +5,12 @@
 #
 # $Id: lib.mk 20 2010-04-23 00:43:47Z jason $
 
-ifndef RED_TARGET_BUILD
-  $(error "RED_TARGET_BUILD not defined! Makefile error. Include target.mk.")
-endif
-
 SILENT ?= @
 
 LIBROOT  ?= .
 PROJROOT ?= $(LIBROOT)/..
 
-LIBDIR ?= $(LIBROOT)/$(RED_TARGET_BUILD)
+LIBDIR ?= $(LIBROOT)/$(RED_TARGET)/$(RED_BUILD)
 
 STATICLIBS  ?=
 DYNAMICLIBS ?=
