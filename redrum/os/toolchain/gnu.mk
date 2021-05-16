@@ -24,7 +24,7 @@ SED_IN_PLACE:=sed -i
 
 LIBPREFIX ?= lib
 
-CFLAGS += -Wall -Werror
+CFLAGS += -Wall -Werror -Wno-misleading-indentation
 
 LIB_FLAGS_STATIC  += -r
 LIB_FLAGS_DYNAMIC += -shared
