@@ -1,6 +1,6 @@
 #!env ruby
 #
-# Copyright (C) 2015, Redbeard Enterprises Ltd.
+# Copyright (C) 2010-2021, Redbeard Enterprises Ltd.
 # All rights reserved.
 #
 # $Id: package.rb 19 2010-04-14 16:54:52Z jason $
