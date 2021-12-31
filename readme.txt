@@ -1,4 +1,4 @@
-Copyright (C) 2015, Redbeard Enterprises Ltd.
+Copyright (C) 2010-2021, Jason Colburne
 All rights reserved.
 
 Getting Started:
